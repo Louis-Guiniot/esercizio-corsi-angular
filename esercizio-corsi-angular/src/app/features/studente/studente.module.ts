@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StudenteRoutingModule } from './studente-routing.module';
 import { StudenteComponent } from './studente.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -12,6 +13,7 @@ import { StudenteComponent } from './studente.component';
     CommonModule,
     SharedModule,
     StudenteRoutingModule,
+    NgbModule,
   ],
   exports: [StudenteComponent],
   bootstrap: [StudenteComponent],
