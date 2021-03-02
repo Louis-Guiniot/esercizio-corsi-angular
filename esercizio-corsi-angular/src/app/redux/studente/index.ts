@@ -1,7 +1,8 @@
 import { Params } from "@angular/router";
 import { createSelector } from "@ngrx/store";
 import { AppState } from "..";
-import { StudentState } from "./student.reducers";
+import { StudentState } from "./studente.reducers";
+
 
 export const selectStudentState = (state: AppState) => state.studentState;
 
@@ -16,5 +17,5 @@ export const selectStudents = createSelector(
 
 export const getCurrentStudent = createSelector(
     selectStudentState,
-    (state: StudentState, params: Params) => state.students.find(item => item.id === Number(params['id']))
+    (state: StudentState, params: Params) => state.students.find(item => item.idstudente === Number(params['id']))
 );

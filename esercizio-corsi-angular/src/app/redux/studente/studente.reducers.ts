@@ -1,6 +1,7 @@
 import {Action, ActionReducer, createReducer, on } from "@ngrx/store";
 import { Student } from "src/app/core/model/Student.interface";
-import { initStudents } from "./student.actions";
+import { initStudents } from "./studente.actions";
+
 
 
 export interface StudentState {
