@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { StudenteComponent } from './studente.component';
+import { StudenteComponent } from './main/studente.component';
 
 const routes: Routes = [{ path: '', component: StudenteComponent }];
 

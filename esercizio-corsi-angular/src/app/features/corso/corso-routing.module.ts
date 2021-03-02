@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CorsoComponent } from './corso.component';
+import { CorsoComponent } from './main/corso.component';
 
 const routes: Routes = [{ path: '', component: CorsoComponent }];
 

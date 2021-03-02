@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CorsoComponent } from './corso.component';
+import { CorsoComponent } from './main/corso.component';
 import { CorsoRoutingModule } from './corso-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
