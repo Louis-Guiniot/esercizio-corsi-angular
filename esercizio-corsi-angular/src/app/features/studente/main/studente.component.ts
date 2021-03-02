@@ -43,6 +43,8 @@ export class StudenteComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log("sono in studente")
+
     this.createStudent = this.fb.group({
       nome: ['', Validators.required],
       cognome: ['', Validators.required],
@@ -59,6 +61,18 @@ export class StudenteComponent implements OnInit {
       idcorso: ['', Validators.required],
     })
     
-    console.log("sono in studente")
+  }
+
+  stuCreate(){
+    console.log(this.createStudent.value.nome+" nome")
+    console.log("creazione studente iniziata")
+  }
+
+  stuUpdate(){
+    console.log("update studente iniziata")
+  }
+
+  stuDelete(){
+    console.log("eliminazione studente iniziata")
   }
 }

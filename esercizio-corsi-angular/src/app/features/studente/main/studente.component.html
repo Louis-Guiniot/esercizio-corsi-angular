@@ -55,8 +55,8 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-        <form [formGroup]="createStudent">
+    <form [formGroup]="createStudent" (ngSubmit)="stuCreate()">
+        <div class="modal-body">
             <div class="row">
                 <div class="col">
                     <div class="form-group mb-3">
@@ -116,12 +116,12 @@
                     <label for="description">Corso</label>
                 </span>
             </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
-    </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+        </div>
+    </form>
 </ng-template>
 
 <!-- ANCHOR - update -->
@@ -133,8 +133,8 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-        <form [formGroup]="updateStudent">
+    <form [formGroup]="updateStudent" (ngSubmit)="stuUpdate()">
+        <div class="modal-body">
             <div class="row">
                 <div class="col">
                     <div class="form-group mb-3">
@@ -194,12 +194,12 @@
                     <label for="description">Corso</label>
                 </span>
             </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
-    </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+        </div>
+    </form>
 </ng-template>
 
 <!-- ANCHOR - delete -->
@@ -207,18 +207,18 @@
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Eliminazione studente</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body">
-        <form [formGroup]="createStudent">
+    <form [formGroup]="createStudent" (ngSubmit)="stuDelete()">
+        <div class="modal-body">
             <p>Stai eliminando lo studente - nomeStudente.</p>
             <p>Sei sicuro della tua scelta?</p>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
-    </div>
+        </div>
 
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+        </div>
+    </form>
 </ng-template>
