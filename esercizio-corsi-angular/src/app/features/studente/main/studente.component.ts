@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbCalendar, NgbDate, NgbDateStruct, NgbInputDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { StudenteService } from '../services/studente.service';
 
 @Component({
   selector: 'app-studente',
@@ -11,7 +12,7 @@ export class StudenteComponent implements OnInit {
 
   createStudent : FormGroup
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private studenteService: StudenteService) {
       
   }
 
