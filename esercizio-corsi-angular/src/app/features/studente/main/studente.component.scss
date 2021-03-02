@@ -6,19 +6,4 @@
 .grid {
     margin: auto;
     width: 80%;
-    display: grid;
-    grid-template-columns: 10% 90%;
-    gap: 1%;
-}
-
-.grid-bg {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    grid-column-start: 1;
-    grid-column-end: 2;
-}
-
-.grid-form {
-    grid-column-start: 2;
-    grid-column-end: 3;
 }

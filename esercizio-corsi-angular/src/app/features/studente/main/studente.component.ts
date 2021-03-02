@@ -22,6 +22,7 @@ export class StudenteComponent implements OnInit {
       cognome: ['', Validators.required],
       dataNascita: ['', Validators.required],
       sesso: ['', Validators.required],
+      idcorso: ['', Validators.required],
     })
     
     console.log("sono in studente")

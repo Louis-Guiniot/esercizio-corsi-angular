@@ -1,9 +1,6 @@
 <div class="box">
 
     <div class="grid">
-        <div class="grid-bg bg-primary">
-            creazione studente
-        </div>
         <div class="grid-form">
             <form [formGroup]="createStudent">
                 <div class="row">
@@ -42,6 +39,18 @@
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="F">
                     <label class="form-check-label" for="inlineRadio2">F</label>
+                </div>
+
+                <!-- ANCHOR - select
+                manca for per caricare corsi -->
+
+                <div class="form-group mb-3">
+                    <span class="form-group has-float-label">
+                    <select formControlName="idcorso" class="form-control">
+                        <option selected>seleziona il corso che desideri seguire</option>
+                    </select>
+                    <label for="description">Data di Nascita</label>
+                </span>
                 </div>
 
             </form>
