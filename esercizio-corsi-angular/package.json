@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+    "@ngrx/effects": "^11.0.1",
+    "@ngrx/store": "^11.0.1",
     "@syncfusion/ej2-angular-navigations": "^18.4.44",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

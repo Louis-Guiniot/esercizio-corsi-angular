@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDate, NgbDateStruct, NgbInputDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { StudenteService } from '../services/studente.service';
 
 @Component({
   selector: 'app-studente',
@@ -19,7 +21,7 @@ export class StudenteComponent implements OnInit {
   page = 1;
   pageSize = 2;
 
-  constructor(private fb: FormBuilder, private modalService: NgbModal) {
+  constructor(private fb: FormBuilder, private studenteService: StudenteService, private modalService: NgbModal) {
       
   }
 
