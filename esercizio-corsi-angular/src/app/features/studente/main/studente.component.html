@@ -1,59 +1,224 @@
 <div class="box">
 
     <div class="grid">
-        <div class="grid-form">
-            <form [formGroup]="createStudent">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group mb-3">
-                            <span class="form-group has-float-label">
-                            <input type="text" class="form-control" formControlName="name" placeholder="inserisci nome" id="sede " autocomplete="off" aria-describedby="basic-addon1">
-                            <label for="description">Nome</label>
-                        </span>
-                        </div>
+        <div class="btn-grid">
+            <button class="btn btn-outline-dark" id="btn-create" (click)="open(create)">Aggiungi</button>
 
-                    </div>
-                    <div class="col">
-                        <div class="form-group mb-3">
-                            <span class="form-group has-float-label">
-                            <input type="text" class="form-control" formControlName="cognome" placeholder="inserisci cognome" id="sede " autocomplete="off" aria-describedby="basic-addon1">
-                            <label for="description">Cognome</label>
-                        </span>
-                        </div>
+        </div>
+        <div class="table-grid">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="row">ID</th>
+                        <th scope="row">NOME</th>
+                        <th scope="row">COGNOME</th>
+                        <th scope="row">DATA DI NASCITA</th>
+                        <th scope="row">SESSO</th>
+                        <th scope="row">&nbsp;</th>
+                        <th scope="row">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Louis</td>
+                        <td>Guiniot</td>
+                        <td>1999-06-15</td>
+                        <td>M</td>
+                        <td><a (click)="open(update)"><i class="bi bi-pencil-square"></i></a></td>
+                        <td><a (click)="open(delete)"><i class="bi bi-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                    </div>
-                </div>
+            <!-- <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize" class="pagination">
+                </ngb-pagination>
 
-                <div class="form-group mb-3">
-                    <span class="form-group has-float-label">
-                    <input type="text" class="form-control" formControlName="cognome" placeholder="yyyy-mm-dd" id="sede " autocomplete="off" aria-describedby="basic-addon1">
-                    <label for="description">Data di Nascita</label>
-                </span>
-                </div>
+                <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="pageSize">
+                    <option [ngValue]="2">2 elementi per pagina</option>
+                    <option [ngValue]="4">4 elementi per pagina</option>
+                    <option [ngValue]="6">6 elementi per pagina</option>
+                    <option [ngValue]="10">10 elementi per pagina</option>
+                    <option [ngValue]="1000">1000 elementi per pagina</option>
+                </select>
+            </div> -->
 
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="M">
-                    <label class="form-check-label" for="inlineRadio1">M</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="F">
-                    <label class="form-check-label" for="inlineRadio2">F</label>
-                </div>
-
-                <!-- ANCHOR - select
-                manca for per caricare corsi -->
-
-                <div class="form-group mb-3">
-                    <span class="form-group has-float-label">
-                    <select formControlName="idcorso" class="form-control">
-                        <option selected>seleziona il corso che desideri seguire</option>
-                    </select>
-                    <label for="description">Data di Nascita</label>
-                </span>
-                </div>
-
-            </form>
         </div>
     </div>
 </div>
+
+<ng-template #create let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Creazione studente</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="createStudent">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="nome"
+                                placeholder="inserisci nome" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Nome</label>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="cognome"
+                                placeholder="inserisci cognome" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Cognome</label>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <select formControlName="sesso" class="form-control">
+                                <option selected>seleziona il tuo sesso</option>
+                                <option value="M">Maschio</option>
+                                <option value="F">Femmina</option>
+                            </select>
+                            <label for="description">Sesso</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="dataNascita"
+                                placeholder="yyyy-mm-dd" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Data di nascita</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- ANCHOR - select
+            manca for per caricare corsi -->
+            <div class="form-group mb-3">
+                <span class="form-group has-float-label">
+                    <select formControlName="idcorso" class="form-control">
+                        <option selected>seleziona il corso che desideri seguire</option>
+                    </select>
+                    <label for="description">Corso</label>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+    </div>
+</ng-template>
+
+<!-- ANCHOR - update -->
+<!-- da inserire placeholder dati -->
+<ng-template #update let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Aggiornamento studente</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="updateStudent">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="nome"
+                                placeholder="inserisci nome" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Nome</label>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="cognome"
+                                placeholder="inserisci cognome" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Cognome</label>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <select formControlName="sesso" class="form-control">
+                                <option selected>seleziona il tuo sesso</option>
+                                <option value="M">Maschio</option>
+                                <option value="F">Femmina</option>
+                            </select>
+                            <label for="description">Sesso</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <span class="form-group has-float-label">
+                            <input type="text" class="form-control" formControlName="dataNascita"
+                                placeholder="yyyy-mm-dd" id="sede " autocomplete="off"
+                                aria-describedby="basic-addon1">
+                            <label for="description">Data di nascita</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- ANCHOR - select
+            manca for per caricare corsi -->
+            <div class="form-group mb-3">
+                <span class="form-group has-float-label">
+                    <select formControlName="idcorso" class="form-control">
+                        <option selected>seleziona il corso che desideri seguire</option>
+                    </select>
+                    <label for="description">Corso</label>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+    </div>
+</ng-template>
+
+<!-- ANCHOR - delete -->
+<ng-template #delete let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Eliminazione studente</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="createStudent">
+            <p>Stai eliminando lo studente - nomeStudente.</p>
+            <p>Sei sicuro della tua scelta?</p>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Esci click')">Esci</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Salva click')">Salva</button>
+    </div>
+
+</ng-template>
