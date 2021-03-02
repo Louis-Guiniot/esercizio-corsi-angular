@@ -7,14 +7,15 @@
     margin: auto;
     width: 80%;
     display: grid;
-    grid-template-columns: 5% 95%;
-    border: 1px #FF6B6B solid;
+    grid-template-columns: 10% 90%;
+    gap: 1%;
 }
 
 .grid-bg {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
     grid-column-start: 1;
     grid-column-end: 2;
-    background: #FF6B6B;
 }
 
 .grid-form {
