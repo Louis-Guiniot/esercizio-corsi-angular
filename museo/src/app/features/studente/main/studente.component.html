@@ -18,13 +18,13 @@
                         <th scope="row">&nbsp;</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let stu of students | async">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Louis</td>
-                        <td>Guiniot</td>
-                        <td>1999-06-15</td>
-                        <td>M</td>
+                        <th scope="row">{{stu.id}}</th>
+                        <td>{{stu.nome}}</td>
+                        <td>{{stu.cognome}}</td>
+                        <td>{{stu.dataNascita}}</td>
+                        <td>{{stu.sesso}}</td>
                         <td><a (click)="open(update)"><i class="bi bi-pencil-square"></i></a></td>
                         <td><a (click)="open(delete)"><i class="bi bi-trash"></i></a></td>
                     </tr>

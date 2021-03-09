@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCalendar, NgbDate, NgbDateStruct, NgbInputDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Student } from 'src/app/core/model/Student.interface';
+import { selectStudents } from 'src/app/redux/studente';
 import { StudenteService } from '../services/studente.service';
 
 @Component({
@@ -21,8 +25,8 @@ export class StudenteComponent implements OnInit {
   page = 1;
   pageSize = 2;
 
-  constructor(private fb: FormBuilder, private studenteService: StudenteService, private modalService: NgbModal) {
-      
+  constructor(private fb: FormBuilder, private studenteService: StudenteService, private modalService: NgbModal, private store: Store) {
+    console.log(this.studenteService.retreiveAllStudents())
   }
 
   open(content) {
@@ -63,6 +67,10 @@ export class StudenteComponent implements OnInit {
       idcorso: ['', Validators.required],
     })
     
+  }
+
+  get students(): Observable<Student[]> {
+    return this.store.pipe(select(selectStudents));
   }
 
   stuCreate(){

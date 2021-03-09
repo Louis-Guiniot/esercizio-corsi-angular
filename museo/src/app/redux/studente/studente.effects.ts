@@ -14,12 +14,12 @@ export class CustomerEffects {
     constructor(private actions$: Actions, private http: HttpCommunicationsService, private router: Router) { }
 
     retreiveAllStudents(): Observable<Response> {
-        return this.http.retrieveGetCall<Response>("student/findAll");
+        return this.http.retrieveGetCall<Response>("studenti/findAll");
     }
 
     
     createStudent(nome:string,cognome:string,dataNascita:string,sesso:string,idCorso:string): Observable<Response>{
-        return this.http.retrievePostCall<Response>('student/create',{nome,cognome,dataNascita,sesso,idCorso});
+        return this.http.retrievePostCall<Response>('studenti/create',{nome,cognome,dataNascita,sesso,idCorso});
     }
 
     // findUpdateCustomer(id:string, ragioneSociale:string, partitaIva:string, email:string, sede: string, residenza: string, name:string){
